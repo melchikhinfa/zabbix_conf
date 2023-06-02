@@ -1,0 +1,27 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+Vagrant.configure("2") do |config|
+  config.vm.box = "generic/ubuntu2204"
+
+  config.vm.provider "virtualbox" do |vb|
+    vb.name = "proxy"
+    vb.memory = "1024"
+    vb.cpus = 1
+    vb.gui = false
+    vb.vm.hostname = 'proxy'
+  end
+
+  config.vm.hostname = "proxy"
+
+  config.vm.synced_folder ".", "/home/vagrant/code",
+    owner: "root", group: "root"
+  
+  config.vm.network "public_network"
+
+  config.vm.provision:shell, inline: <<-SHELL
+    echo "root:rootroot" | sudo chpasswd
+  SHELL
+
+  config.vm.provision "shell", path: "bootstrap.sh"
+end
