@@ -1,6 +1,5 @@
 # Установка Zabbix с Nginx и PostgreSQL на Ubuntu 22.04
 
-Этот гайд поможет вам установить Zabbix с Nginx и PostgreSQL на Ubuntu 22.04. 
 
 ## Требования
 
@@ -108,9 +107,3 @@ server {
 ```bash
 sudo systemctl restart zabbix-server zabbix-agent nginx php7.4-fpm
 ```
-
-### Шаг 8: Завершение установки
-
-Теперь можно открыть браузер и зайти на страницу http://example.com/zabbix, где example.com - ваш домен или IP-адрес сервера. После этого следуйте инструкциям на экране для завершения установки.
-
-Готово! Теперь вы успешно установили Zabbix с Nginx и PostgreSQL на Ubuntu 22.04.
